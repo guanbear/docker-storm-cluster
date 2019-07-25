@@ -1,10 +1,13 @@
 FROM java:8-jre
 
 # 0.10.0
-ENV STORM_VERSION 0.9.2-incubating
+ENV STORM_VERSION 1.2.3 
 ENV APACHE_MIRROR http://apache.cs.utah.edu/storm
 
-RUN apt-get update && apt-get install -y python
+RUN echo "deb [check-valid-until=no] http://cdn-fastly.deb.debian.org/debian jessie main" > /etc/apt/sources.list.d/jessie.list
+RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
+RUN sed -i '/deb http:\/\/deb.debian.org\/debian jessie-updates main/d' /etc/apt/sources.list
+RUN apt-get -o Acquire::Check-Valid-Until=false update
 
 RUN curl -o /opt/apache-storm.tar.gz ${APACHE_MIRROR}/apache-storm-${STORM_VERSION}/apache-storm-${STORM_VERSION}.tar.gz && \
     tar -C /opt -xzf /opt/apache-storm.tar.gz && \
