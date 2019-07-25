@@ -9,7 +9,7 @@ fi
 if [ ! -f /opt/apache-storm/log4j2/cluster.xml ]
 then
 	echo "No cluster.xml found, creating one."
-	cp /opt/apache-storm/log4j2-dist/cluster-console.xml /opt/apache-storm/log4j2/cluster.xml
+	cp /opt/apache-storm/log4j2-dist/cluster.xml /opt/apache-storm/log4j2/cluster.xml
 fi
 
 # check if we want to autoconfigure zookeeper

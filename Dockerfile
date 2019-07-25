@@ -17,11 +17,10 @@ RUN curl -o /opt/apache-storm.tar.gz ${APACHE_MIRROR}/apache-storm-${STORM_VERSI
     mkdir -p /opt/apache-storm/logs && \
     mkdir -p /opt/apache-storm/log4j2-dist && \
     mkdir -p /opt/apache-storm/conf-dist && \
-    mv /opt/apache-storm/log4j2/cluster.xml /opt/apache-storm/log4j2-dist/cluster-file.xml && \
+    cp /opt/apache-storm/log4j2/cluster.xml /opt/apache-storm/log4j2-dist/cluster-file.xml && \
+    cp /opt/apache-storm/log4j2/cluster.xml /opt/apache-storm/log4j2-dist/cluster.xml && \
     cp /opt/apache-storm/conf/* /opt/apache-storm/conf-dist/
 
-COPY log4j2-cluster.xml /opt/apache-storm/log4j2/cluster.xml
-COPY log4j2-cluster.xml /opt/apache-storm/log4j2-dist/cluster-console.xml
 COPY configure-zookeeper-servers /configure-zookeeper-servers
 
 COPY run.sh /run.sh
