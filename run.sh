@@ -6,10 +6,10 @@ then
 	echo "Starting with an empty storm configuration file"
 	touch /opt/apache-storm/conf/storm.yaml
 fi
-if [ ! -f /opt/apache-storm/logback/cluster.xml ]
+if [ ! -f /opt/apache-storm/log4j2/cluster.xml ]
 then
 	echo "No cluster.xml found, creating one."
-	cp /opt/apache-storm/logback-dist/cluster-console.xml /opt/apache-storm/logback/cluster.xml
+	cp /opt/apache-storm/log4j2-dist/cluster-console.xml /opt/apache-storm/log4j2/cluster.xml
 fi
 
 # check if we want to autoconfigure zookeeper
