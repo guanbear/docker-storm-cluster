@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: zookeeper
-        image: thegillis/storm-cluster:latest
+        image: zcguan/storm-cluster:latest
         env:
         - name: CONFIGURE_ZOOKEEPER
           value: "true"
