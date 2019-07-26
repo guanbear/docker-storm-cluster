@@ -19,6 +19,7 @@ then
 	echo "Trying to autoconfigure zookeeper servers..."
 
 	/configure-zookeeper-servers /opt/apache-storm/conf/storm.yaml
+	sed  -i  's/nimbus.host: \(.*\)/nimbus.seeds: ["\1"]/g' /opt/apache-storm/conf/storm.yaml
 fi
 
 if [ "x$STORM_CMD" != "x" ]
@@ -27,7 +28,7 @@ then
 	echo "Running storm command ${STORM_CMD}"
 
 	bin/storm ${STORM_CMD}
-	if [ "x$STORM_CMD" == "xsupervisor" ]
+	if [ "x$STORM_CMD" = "xsupervisor" ]
 	then
 		sleep 3
 		echo "Running storm command logviewer"
