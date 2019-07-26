@@ -30,6 +30,7 @@ then
 	if [ "x$STORM_CMD" == "xsupervisor" ]
 	then
 		sleep 3
+		echo "Running storm command logviewer"
 		bin/storm logviewer
 	fi
 
