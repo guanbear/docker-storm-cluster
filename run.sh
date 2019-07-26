@@ -19,7 +19,6 @@ then
 	echo "Trying to autoconfigure zookeeper servers..."
 
 	/configure-zookeeper-servers /opt/apache-storm/conf/storm.yaml
-	sed -i 's/nimbus.host/nimbus.seeds/g' /opt/apache-storm/conf/storm.yaml
 fi
 
 if [ "x$STORM_CMD" != "x" ]
